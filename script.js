@@ -17,14 +17,11 @@ function calcular() {
     // 4. Converte para Reais usando a cotação fixa
     let custoProxyReais = totalIene * cotacao;
 
-    // 5. Soma a sua taxa fixa da CEG (R$ 10,00)
+    // 5. Soma a sua taxa fixa (R$ 10,00)
     let suaTaxa = 10.00;
     let valorFinal = custoProxyReais + suaTaxa;
 
-    // 6. Mostra o resultado detalhado na tela
+    // 6. Mostra APENAS o resultado final na tela
     let resultadoDiv = document.getElementById('resultado');
-    resultadoDiv.innerHTML = 
-        "<span style='font-size: 14px; color: #666;'>Custo na Proxy: R$ " + custoProxyReais.toFixed(2).replace('.', ',') + "</span><br>" +
-        "<span style='font-size: 14px; color: #666;'>Sua Taxa: R$ 10,00</span><br><br>" +
-        "Valor Final: <br> R$ " + valorFinal.toFixed(2).replace('.', ',');
+    resultadoDiv.innerHTML = "Valor Final: <br> R$ " + valorFinal.toFixed(2).replace('.', ',');
 }
