@@ -1,7 +1,9 @@
 function calcular() {
-    // Pega os valores que a pessoa digitou
+    // Pega apenas o valor do item que a pessoa digitou
     let valorIene = parseFloat(document.getElementById('valorIene').value) || 0;
-    let cotacao = parseFloat(document.getElementById('cotacaoIene').value) || 0;
+
+    // Cotação fixa do Iene (não muda)
+    let cotacao = 0.0324;
 
     // 1. Taxa fixa da proxy (100 yenes)
     let taxaFixaProxy = 100;
@@ -12,7 +14,7 @@ function calcular() {
     // 3. Soma tudo em Iene
     let totalIene = valorIene + taxaFixaProxy + taxaVariavelProxy;
 
-    // 4. Converte para Reais usando a cotação digitada
+    // 4. Converte para Reais usando a cotação fixa
     let custoProxyReais = totalIene * cotacao;
 
     // 5. Soma a sua taxa fixa da CEG (R$ 10,00)
