@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora CEG - Dark Bloom</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora Mercari JP</h1>
+        <p>Calcule o valor final do item no Japão</p>
+
+        <label for="valorIene">Valor do item no Mercari (¥):</label>
+        <input type="number" id="valorIene" placeholder="Ex: 200" step="any">
+
+        <label for="cotacaoIene">Cotação do Iene (R$):</label>
+        <input type="number" id="cotacaoIene" placeholder="Ex: 0.0326" step="any">
+
+        <button onclick="calcular()">Calcular Total</button>
+
+        <div id="resultado" class="resultado">
+            <!-- O resultado vai aparecer aqui -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
