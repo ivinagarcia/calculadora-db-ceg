@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #E6E6FA; /* Fundo em tom de lilás claro (Lavender) */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +42,7 @@ button {
     width: 100%;
     padding: 10px;
     margin-top: 20px;
-    background-color: #ff5722;
+    background-color: #7B1FA2; /* Botão Roxo */
     color: white;
     border: none;
     border-radius: 5px;
@@ -50,7 +50,7 @@ button {
     font-weight: bold;
 }
 button:hover {
-    background-color: #e64a19;
+    background-color: #4A148C; /* Roxo mais escuro ao passar o mouse */
 }
 .resultado {
     margin-top: 20px;
