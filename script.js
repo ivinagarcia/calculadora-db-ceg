@@ -1,4 +1,5 @@
-const COTACAO_IENE = 0.0382;
+// Cotação efetiva real: câmbio base JP (0,0375) + ~7,61% de IOF/spread do cartão
+const COTACAO_IENE = 0.0404;
 
 document.addEventListener('DOMContentLoaded', () => {
     const spanCotacao = document.getElementById('textoCotacao');
@@ -17,10 +18,10 @@ function calcular() {
     // 2. Taxa de pagamento no Cartão de Crédito (7,65% sobre item + 100)
     let taxaVariavelProxy = Math.round((valorIene + taxaFixaProxy) * 0.0765);
 
-    // 3. Soma tudo em Iene (bate exato com os ¥ 6.566 da tela)
+    // 3. Soma tudo em Iene
     let totalIene = valorIene + taxaFixaProxy + taxaVariavelProxy;
 
-    // 4. Converte para Reais já considerando spread + IOF
+    // 4. Converte para Reais já considerando câmbio da plataforma + spread + IOF
     let custoProxyReais = totalIene * COTACAO_IENE;
 
     // 5. Soma a taxa fixa da Dark Bloom (R$ 10,00)
