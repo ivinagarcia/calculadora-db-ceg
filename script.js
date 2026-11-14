@@ -1,27 +1,33 @@
+const COTACAO_IENE = 0.0382;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const spanCotacao = document.getElementById('textoCotacao');
+    if (spanCotacao) {
+        spanCotacao.textContent = "R$ " + COTACAO_IENE.toFixed(4).replace('.', ',');
+    }
+});
+
 function calcular() {
     // Pega apenas o valor do item que a pessoa digitou
     let valorIene = parseFloat(document.getElementById('valorIene').value) || 0;
 
-    // Cotação fixa do Iene (não muda)
-    let cotacao = 0.0324;
-
-    // 1. Taxa fixa da proxy (100 yenes)
+    // 1. Taxa fixa de compra da proxy (100 yenes)
     let taxaFixaProxy = 100;
 
-    // 2. Taxa variável da proxy (9% sobre o valor do item + 100)
-    let taxaVariavelProxy = Math.round((valorIene + taxaFixaProxy) * 0.09);
+    // 2. Taxa de pagamento no Cartão de Crédito (7,65% sobre item + 100)
+    let taxaVariavelProxy = Math.round((valorIene + taxaFixaProxy) * 0.0765);
 
-    // 3. Soma tudo em Iene
+    // 3. Soma tudo em Iene (bate exato com os ¥ 6.566 da tela)
     let totalIene = valorIene + taxaFixaProxy + taxaVariavelProxy;
 
-    // 4. Converte para Reais usando a cotação fixa
-    let custoProxyReais = totalIene * cotacao;
+    // 4. Converte para Reais já considerando spread + IOF
+    let custoProxyReais = totalIene * COTACAO_IENE;
 
-    // 5. Soma a sua taxa fixa (R$ 10,00)
+    // 5. Soma a taxa fixa da Dark Bloom (R$ 10,00)
     let suaTaxa = 10.00;
     let valorFinal = custoProxyReais + suaTaxa;
 
-    // 6. Mostra APENAS o resultado final na tela
+    // 6. Mostra o resultado final na tela
     let resultadoDiv = document.getElementById('resultado');
     resultadoDiv.innerHTML = "Valor Final: <br> R$ " + valorFinal.toFixed(2).replace('.', ',');
 }
